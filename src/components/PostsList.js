@@ -60,7 +60,7 @@ class PostsList extends Component {
     );
   }
 }
-//
+
 PostsList.propTypes = {
   posts: PropTypes.array.isRequired,
 };
