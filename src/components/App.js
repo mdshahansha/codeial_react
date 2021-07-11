@@ -7,9 +7,9 @@ import {
   Redirect,
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Home, Navbar, Page404, Login, Signup } from './';
 
 import { fetchPosts } from '../actions/posts';
-import { Home, Navbar, Page404, Login, Signup } from './';
 import * as jwtDecode from 'jwt-decode';
 import { authenticateUser } from '../actions/auth';
 
