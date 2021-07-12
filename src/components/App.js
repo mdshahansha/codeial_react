@@ -15,8 +15,11 @@ import { authenticateUser } from '../actions/auth';
 
 const Settings = () => <div>Setting</div>;
 
+//
 const PrivateRoute = (privateRouteProps) => {
+  // 
   const { isLoggedin, path, component: Component } = privateRouteProps;
+
 
   return (
     <Route
