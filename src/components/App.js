@@ -1,31 +1,41 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect,
-} from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { Home, Navbar, Page404, Login, Signup,Settings } from './';
+} from "react-router-dom";
+import PropTypes from "prop-types";
+import { Home, Navbar, Page404, Login, Signup, Settings } from "./";
 
-import { fetchPosts } from '../actions/posts';
-import * as jwtDecode from 'jwt-decode';
-import { authenticateUser } from '../actions/auth';
+import { fetchPosts } from "../actions/posts";
+import * as jwtDecode from "jwt-decode";
+import { authenticateUser } from "../actions/auth";
 
 // const Settings = () => <div>Setting</div>;
 
 //
 const PrivateRoute = (privateRouteProps) => {
-  // 
+  //
   const { isLoggedin, path, component: Component } = privateRouteProps;
-
 
   return (
     <Route
       path={path}
       render={(props) => {
-        return isLoggedin ? <Component {...props} /> : <Redirect to="/login" />;
+        return isLoggedin ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: {
+                from: props.location,
+              },
+            }}
+          />
+        );
       }}
     />
   );
@@ -35,12 +45,12 @@ class App extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchPosts());
 
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
 
     if (token) {
       const user = jwtDecode(token);
 
-      console.log('user', user);
+      console.log("user", user);
       this.props.dispatch(
         authenticateUser({
           email: user.email,
