@@ -7,13 +7,13 @@ import {
   Redirect,
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Home, Navbar, Page404, Login, Signup } from './';
+import { Home, Navbar, Page404, Login, Signup,Settings } from './';
 
 import { fetchPosts } from '../actions/posts';
 import * as jwtDecode from 'jwt-decode';
 import { authenticateUser } from '../actions/auth';
 
-const Settings = () => <div>Setting</div>;
+// const Settings = () => <div>Setting</div>;
 
 //
 const PrivateRoute = (privateRouteProps) => {
