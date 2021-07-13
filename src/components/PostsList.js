@@ -60,7 +60,7 @@ class PostsList extends Component {
     );
   }
 }
-
+// To run typechecking on the props for a component, you can assign the special propTypes property:
 PostsList.propTypes = {
   posts: PropTypes.array.isRequired,
 };
