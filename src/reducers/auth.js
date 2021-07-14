@@ -60,17 +60,17 @@ export default function auth(state = initialAuthState, action) {
         user: {},
         isLoggedin: false,
       };
-      case EDIT_USER_SUCCESSFUL:
-        return{
-          ...state,
+    case EDIT_USER_SUCCESSFUL:
+      return {
+        ...state,
         user: action.user,
-        error:false
-        }
-        case EDIT_USER_FAILED:
-          return{
-            ...state,
-            error:action.error
-          }
+        error: false,
+      };
+    case EDIT_USER_FAILED:
+      return {
+        ...state,
+        error: action.error,
+      };
     default:
       return state;
   }
