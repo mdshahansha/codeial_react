@@ -148,7 +148,7 @@ import {
         method:'POST',
         headers:{
           'Content-Type': 'application/x-www-form-urlencoded',
-          'Authorization':`Bearer ${getAuthTokenFromLocalStorage}`
+          'Authorization':`Bearer ${getAuthTokenFromLocalStorage()}`
         },
         body: getFormBody({
           name,
@@ -159,7 +159,7 @@ import {
       })
       .then(response=>response.json())
       .then((data)=>{
-        console.log('data',data);
+        console.log('Edit Profile data',data);
         if(data.success){
           dispatch(editUserSuccessful(data.data.user));
           if(data.data.token){
