@@ -62,20 +62,20 @@ class Signup extends Component {
         </div>
         <div className="field">
           <input
-            placeholder=" password"
+            placeholder="Confirm password"
             type="password"
             required
             onChange={(e) =>
-              this.handleInputChange('password', e.target.value)
+              this.handleInputChange('confirmPassword', e.target.value)
             }
           />
         </div>
         <div className="field">
           <input
-            placeholder="ConfirmPassword"
+            placeholder="Password"
             type="password"
             required
-            onChange={(e) => this.handleInputChange('confirmPassword', e.target.value)}
+            onChange={(e) => this.handleInputChange('password', e.target.value)}
           />
         </div>
         <div className="field">
