@@ -4,10 +4,9 @@ import auth from './auth';
 import profile from './profile';
 import friends from './friends';
 
-
 export default combineReducers({
-    posts,
-    auth,
-    profile,
-    friends,
-})
+  posts,
+  auth,
+  profile,
+  friends,
+});
