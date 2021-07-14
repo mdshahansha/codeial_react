@@ -107,6 +107,7 @@ class UserProfile extends Component {
     console.log('this.props', params);
     const user = profile.user;
 
+    //loader ?
     if (profile.inProgress) {
       return <h1>Loading!</h1>;
     }
