@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import { func } from 'prop-types';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import {fetchUserProfile} from '../actions/profile'
 
  class UserProfile extends Component {
 
@@ -7,12 +10,16 @@ import React, { Component } from 'react'
 
         if(match.params.userId){
             //disspatch an action
+            this.props.dispatch(fetchUserProfile(match.params.userId));
         }
     }
 
     render() {
         console.log("this.props",this.props);
-        const {match:{params}}=this.props
+        const {match:{params}}=this.props;
+
+        const user=profile.user;
+
         return (
             <div className="settings">
         <div className="img-container">
@@ -24,11 +31,11 @@ import React, { Component } from 'react'
  
         <div className="field">
           <div className="field-label">Name</div>
-          <div className="field-value">ancs</div>
+          <div className="field-value">{user.name}</div>
         </div>
         <div className="field">
           <div className="field-label">Email</div>
-          <div className="field-value">ancs</div>
+          <div className="field-value">{user.email}</div>
         </div>
         
         <div className="btn-grp">
@@ -42,5 +49,11 @@ import React, { Component } from 'react'
         )
     }
 }
+function mapStateToProps({props}){
+  return{
+    profile,
 
-export default UserProfile;
+  }
+}
+
+export default connect(mapStateToProps)(UserProfile);
