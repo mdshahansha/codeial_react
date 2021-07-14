@@ -10,8 +10,11 @@ import PropTypes from "prop-types";
 import { Home, Navbar, Page404, Login, Signup, Settings } from "./";
 
 import { fetchPosts } from "../actions/posts";
-import * as jwtDecode from "jwt-decode";
+// import * as jwt_decode from "jwt-decode";
+import jwt_decode from "jwt-decode";
 import { authenticateUser } from "../actions/auth";
+import {getAuthTokenFromLocalStorage} from '../helpers/utils';
+
 
 // const Settings = () => <div>Setting</div>;
 
@@ -24,7 +27,7 @@ const PrivateRoute = (privateRouteProps) => {
     <Route
       path={path}
       render={(props) => {
-        return isLoggedin ? (
+        return isLoggedin ? ( 
           <Component {...props} />
         ) : (
           <Redirect
@@ -48,7 +51,7 @@ class App extends React.Component {
     const token = localStorage.getItem("token");
 
     if (token) {
-      const user = jwtDecode(token);
+      const user = jwt_decode(token);
 
       console.log("user", user);
       this.props.dispatch(
