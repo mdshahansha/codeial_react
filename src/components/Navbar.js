@@ -36,7 +36,7 @@ class Navbar extends React.Component {
             alt="search-icon"
           />
           <input placeholder="Search" onChange={this.handleSearch} />
-
+      {/* untill and unlis we get the result */}
           {results.length > 0 && (
             <div className="search-results">
               <ul>
