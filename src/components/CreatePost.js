@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import {createPost} from '../actions/posts'
 
-class componentName extends Component {
+class  CreatePost extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,8 +11,9 @@ class componentName extends Component {
   }
   handleOnClick=()=>{
       //disptach action
+      this.props.dispatch(createPost(this.state.content))
   }
-  handleChange=()=>{
+  handleChange=(e)=>{
       this.setState({
           content:e.target.value,
       })
@@ -18,7 +21,7 @@ class componentName extends Component {
 
   render() {
     return (
-      <div classNmae="create-post">
+      <div className="create-post">
         <textarea
           className="add-post"
           value={this.state.content}
@@ -36,4 +39,4 @@ class componentName extends Component {
   }
 }
 
-export default componentName;
+export default connect()(CreatePost) ;
