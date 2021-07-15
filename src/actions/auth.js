@@ -91,7 +91,7 @@ export function signup(email, password, confirmPassword, name) {
         if (data.success) {
           // do something
           localStorage.setItem('token', data.data.token);
-          dispatch( (data.data.user));
+          dispatch(signupSuccessful(data.data.user));
           return;
         }
         dispatch(signupFailed(data.message));

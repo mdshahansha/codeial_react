@@ -18,7 +18,7 @@ import {
   Settings,
   UserProfile,
 } from './';
-import jwtDecode from 'jwt-decode';
+import * as jwtDecode from 'jwt-decode';
 import { authenticateUser } from '../actions/auth';
 import { getAuthTokenFromLocalStorage } from '../helpers/utils';
 import { fetchUserFriends } from '../actions/friends';
@@ -30,10 +30,8 @@ const PrivateRoute = (privateRouteProps) => {
     <Route
       path={path}
       render={(props) => {
-        console.log('props 1', props);
-        console.log('isLoggedin 2', isLoggedin);
-        console.log('component 3', Component);
-
+        console.log('props', props);
+        console.log('isLoggedin', isLoggedin);
         return isLoggedin ? (
           <Component {...props} />
         ) : (
