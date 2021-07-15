@@ -3,6 +3,7 @@ import {
     USER_PROFILE_FAILURE,
     FETCH_USER_PROFILE,
   } from './actionTypes';
+  
   import { APIUrls } from '../helpers/urls';
   import { getAuthTokenFromLocalStorage } from '../helpers/utils';
   

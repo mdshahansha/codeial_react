@@ -30,8 +30,10 @@ const PrivateRoute = (privateRouteProps) => {
     <Route
       path={path}
       render={(props) => {
-        console.log('props', props);
-        console.log('isLoggedin', isLoggedin);
+        console.log('props 1', props);
+        console.log('isLoggedin 2', isLoggedin);
+        console.log('component 3', Component);
+
         return isLoggedin ? (
           <Component {...props} />
         ) : (
