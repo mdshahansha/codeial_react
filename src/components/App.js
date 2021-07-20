@@ -17,6 +17,7 @@ import {
   Signup,
   Settings,
   UserProfile,
+  Chat
 } from './';
 import  jwtDecode from 'jwt-decode';
 import { authenticateUser } from '../actions/auth';
@@ -73,6 +74,7 @@ class App extends React.Component {
 
   render() {
     const { posts, auth, friends } = this.props;
+    console.log('AUTH   :  ',auth );
     return (
       <Router>
         <div>
@@ -93,6 +95,8 @@ class App extends React.Component {
                 );
               }}
             />
+
+
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <PrivateRoute
@@ -108,6 +112,7 @@ class App extends React.Component {
             <Route component={Page404} />
           </Switch>
         </div>
+       
       </Router>
     );
   }

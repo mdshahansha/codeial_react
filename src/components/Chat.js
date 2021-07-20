@@ -11,8 +11,9 @@ class Chat extends Component {
       messages: [], // {content: 'some message', self: true}
       typedMessage: '',
     };
-    this.socket = io.connect('http://54.237.158.65:8000');
+    this.socket = io.connect('http://codeial.codingninjas.com:5000');
     this.userEmail = props.user.email;
+    console.log("test2 4 4           :      ",props)
 
     if (this.userEmail) {
       this.setupConnections();
@@ -32,7 +33,7 @@ class Chat extends Component {
       });
 
       socketConnection.on('user_joined', function (data) {
-        console.log('NE USER JOINED', data);
+        console.log('NEW USER JOINED', data);
       });
     });
 
@@ -55,7 +56,7 @@ class Chat extends Component {
 
   handleSubmit = () => {
     const { typedMessage } = this.state;
-
+console.log("done",typedMessage,this.userEmail);
     if (typedMessage && this.userEmail) {
       this.socket.emit('send_message', {
         message: typedMessage,
