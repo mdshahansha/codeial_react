@@ -24,7 +24,7 @@ class Chat extends Component {
     const self = this;
 
     this.socket.on('connect', function () {
-      console.log('CONNECTION ESTABLISHED');
+      console.log('CONNECTION ESTABLISHED Successfully');
 
       socketConnection.emit('join_room', {
         user_email: this.userEmail,
