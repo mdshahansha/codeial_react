@@ -1,6 +1,6 @@
 import React from 'react';
 import { FriendsListItem } from './';
-
+// props  coming from componenets root file
 const FriendsList = (props) => {
   return (
     <div className="friends-list">
